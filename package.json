@@ -1,0 +1,19 @@
+{
+  "name": "app1",
+  "version": "1.1.5",
+  "description": "test app",
+  "main": "App1.js",
+  "scripts": {
+    "zip:clean": "del /F %npm_package_name%.%npm_package_version%.zip",
+    "zip": "npm run zip:clean && @powershell Compress-Archive -Path ./* -DestinationPath %npm_package_name%.%npm_package_version%.zip",
+    "push:app": "curl -X POST -F file=@%npm_package_name%.%npm_package_version%.zip http://update.specteam.pl/upload/%npm_package_name%/%npm_package_version%",
+    "push:meta": "curl -X POST --data @app.update http://update.specteam.pl/upload/meta/%npm_package_name%/%npm_package_version%",
+    "publish": "npm run zip && npm run push:app && npm run push:meta && npm run zip:clean"
+  },
+  "author": "tB",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}

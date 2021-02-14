@@ -1,0 +1,7 @@
+{
+    "Install": [
+        "npm install"
+        ],
+
+    "Start": "node App1.js",    
+}
