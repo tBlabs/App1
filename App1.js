@@ -17,6 +17,7 @@ server.get('/', (req, res) => res.send(`${appName} ${appVersion}`));
 server.get('/app/name', (req, res) => res.send(appName));
 server.get('/app/ver', (req, res) => res.send(appVersion));
 server.get('/ping', (req, res) => res.send('pong'));
+server.get('/args', (req, res) => res.send(process.argv));
 
 let counter = 0;
 server.get('/counter', (req, res) =>

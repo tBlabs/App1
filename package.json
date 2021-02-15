@@ -1,9 +1,11 @@
 {
   "name": "app1",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "test app",
   "main": "App1.js",
   "scripts": {
+    "start": "node App1.js",
+    
     "zip:clean": "del /F %npm_package_name%.%npm_package_version%.zip",
     "zip": "npm run zip:clean && @powershell Compress-Archive -Path ./* -DestinationPath %npm_package_name%.%npm_package_version%.zip",
     "push:app": "curl -X POST -F file=@%npm_package_name%.%npm_package_version%.zip http://update.specteam.pl/upload/%npm_package_name%/%npm_package_version%",
